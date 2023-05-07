@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZappyFings.com</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header>
+        <a  href="index.html" class="logo">
+            <img src="logo.png">
+        </a>
+        <a class="keys" href="1_second.html">1 Second</a>
+        <a class="keys" href=" 10_seconds.html">10 Seconds</a>
+        <a class="keys" href=" 30_seconds.html">30 Seconds</a>
+        <a class="keys" href=" 60_seconds.html">60 Seconds</a>
+        <img src="ham.png" id="ham" onclick="show_ham_menu()">
+        <ul id="ham_menu">
+            <li class="ham_menu_item"><a href="1_second.html">1 Second</a></li>
+            <li class="ham_menu_item"><a href="10_seconds.html">10 Seconds</a></li>
+            <li class="ham_menu_item"><a href="30_seconds.html">30 Seconds</a></li>
+            <li class="ham_menu_item"><a href="60_seconds.html">60 Seconds</a></li>
+        </ul>
+    </header>
+    <div class="content">
+        <div class="text">Select Duration, and start Zappin' right away!</div>
+        <div class="clicks">
+            Clicks <span id="counter">0</span>
+
+        </div>
+        <button id="button" onclick="start_Count(Count++)" >
+            <div class="message">
+                Click Here
+        </button>
+        <div id="time">
+            Time Left <span id="timer">&infin;</span>second/s
+        </div>
+    </div>
+</body>
+<script>
+    let Count=0;
+let start_Count=()=>{
+    counter.innerHTML=Count;
+}
+let show_ham_menu = () => {
+        if(ham_menu.style.display!="block"){
+            ham_menu.style.display="block";
+        }
+        else {
+            ham_menu.style.display="none";
+        }
+    }
+</script>
+
+</html>

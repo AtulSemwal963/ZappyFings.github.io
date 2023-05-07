@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZappyFings.com</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="logo.png">
+        </a>
+        <a class="keys" href="1_second.html">1 Second</a>
+        <a class="keys" href=" 10_seconds.html">10 Seconds</a>
+        <a class="keys" href=" 30_seconds.html">30 Seconds</a>
+        <a class="keys" href=" 60_seconds.html">60 Seconds</a>
+        <img src="ham.png" id="ham" onclick="show_ham_menu()">
+        <ul id="ham_menu">
+            <li class="ham_menu_item"><a href="1_second.html">1 Second</a></li>
+            <li class="ham_menu_item"><a href="10_seconds.html">10 Seconds</a></li>
+            <li class="ham_menu_item"><a href="30_seconds.html">30 Seconds</a></li>
+            <li class="ham_menu_item"><a href="60_seconds.html">60 Seconds</a></li>
+        </ul>
+    </header>
+    <div class="content">
+        <div class="text">Select Duration, and start Zappin' right away!</div>
+        <div class="clicks">
+            Clicks <span id="counter">0</span>
+            <a id="reset" href="60_seconds.html">Reset</a>
+        </div>
+        <button id="button" onclick="start_Count(Count++)">
+            <div class="message">
+                Click Here
+        </button>
+        <div id="time">
+            Time Left <span id="timer">60.00</span>second/s
+        </div>
+        <a id="reset_mobile" href="60_seconds.html">Reset</a>
+        <div id="score">
+            Your Score <br>
+            <span id="cps">__</span> CPS<br>
+            <span id="comment">Comment</span>
+        </div>
+        <img src="zapper.png" id="img"/>
+    </div>
+</body>
+<script>
+      let Count = 0;
+    let start_Count = () => {
+        counter.innerHTML = Count;
+        if (Count == 1) countdown();
+    }
+    let countdown=()=>{
+        let Time=60;
+    let Time_writer=document.getElementById("timer");
+    setInterval(()=>{
+        if(Time <= 0.01){
+            Time_writer.innerHTML="0";
+            vanish_button();
+            let cps_count=(Count/60).toPrecision(3);
+            cps.innerHTML=cps_count;
+            give_comment(cps_count);
+            return 0;
+        }
+        Time=Time-0.01;
+        if(Time<10){ Time_writer.innerHTML=Time.toPrecision(3);}
+        else{Time_writer.innerHTML=Time.toPrecision(4);}
+    },10)
+    }
+    let vanish_button = () => {
+        button.style.display = "none";
+        score.style.display="block";
+    }
+    let give_comment=(cps_count)=>{
+        comment.style.display="block";
+        if(cps_count<=2){
+            comment.style.color="white";
+            comment.innerHTML="You know..there are better things you could be doing for the society, than wasting time mashing random keys, and failing even at that! ";
+        }
+       else if(cps_count>2 && cps_count<=5){
+            comment.style.color="rgb(185, 179, 179)";
+            comment.innerHTML="That's a good score...for a 60 year old.";}
+            else if(cps_count>5 && cps_count<6.5){
+            comment.style.color="rgb(184, 30, 30)";
+            comment.innerHTML="Hmmm...that is a below average score though :)";}
+            else if(cps_count==6.5 ){
+            comment.style.color="rgb(184, 30, 30)";
+            comment.innerHTML="Nice. You managed to reach the pace of an average button clicker &#128513;";} 
+            else if(cps_count>6.5 && cps_count<=8){
+            comment.style.color="rgb(118, 231, 118)";
+            comment.innerHTML="Good. Keep on trying, you can easily beat this score &#128077;";}   
+            else if(cps_count>8 && cps_count<=9){
+            comment.style.color="rgb(118, 231, 118)";
+            comment.innerHTML="Now that's some fast clicking. Cheers &#127864;";} 
+            else if(cps_count>9 && cps_count<=9.5){
+            comment.style.color="rgb(12, 138, 223)";
+            comment.innerHTML="Just Awesome &#127941;";}  
+            else if(cps_count>9.5 && cps_count<=10.3){
+            comment.style.color="rgb(12, 138, 223)";
+            comment.innerHTML="Have This Champ &#127942;";} 
+            else if(cps_count>10.3 && cps_count<=11){
+            comment.style.color="color:rgb(248, 98, 43)";
+            comment.innerHTML="Straight Fire &#128293;";} 
+            else if(cps_count>11 && cps_count<=13){
+            comment.style.color="yellow;";
+            comment.innerHTML="Would you look at those hands! &#128400;";} 
+            else if(cps_count>11 && cps_count<=13){
+            comment.style.color="rgb(241, 208, 21);";
+            comment.innerHTML="Just dont damage your device, All I'm saying &#128566;";} 
+            else if(cps_count>13 && cps_count<=16){
+            comment.style.color="goldenrod;";
+            comment.innerHTML="Well, what could I say.&#128006; ";} 
+            else if(cps_count>16 && cps_count<=20){
+            comment.style.color="golden";
+            comment.innerHTML="Baffled. Bamboozled. Awestruck.Amazed.";} 
+            else if(cps_count>20 && cps_count<21){
+            comment.style.color="golden";
+            comment.innerHTML="Must be feeling lonely that high up the mountain. &#128511;";} 
+            else if(cps_count>21){
+                img.style.display="block"
+            comment.style.color="golden";
+            comment.innerHTML="You are THE CERTIFIED ZAPPER!"}
+    } 
+
+    let show_ham_menu = () => {
+        if(ham_menu.style.display!="block"){
+            ham_menu.style.display="block";
+        }
+        else {
+            ham_menu.style.display="none";
+        }
+    }
+</script>
+
+</html>
